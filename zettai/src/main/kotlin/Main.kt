@@ -1,33 +1,31 @@
-package me
+package me.zettai
 
 import org.http4k.core.*
 import org.http4k.routing.bind
+import org.http4k.routing.path
 import org.http4k.routing.routes
 import org.http4k.server.Jetty
 import org.http4k.server.asServer
 
-val app: HttpHandler = routes(
-    "/greetings" bind(Method.GET) to ::greetings,
-    "/data" bind(Method.GET) to ::receiveData
-)
+fun main() {
+    val app: HttpHandler = routes(
+        "/todo/{user}/{list}" bind(Method.GET) to ::showList
+    )
+    app.asServer(Jetty(8080)).start()
+}
 
-fun greetings(req: Request): Response = Response(Status.OK).body(htmlPage)
-
-fun receiveData(req: Request): Response = Response(Status.CREATED).body("Received: ${req.bodyString()}")
-
-val htmlPage = """
+fun showList(req: Request): Response {
+    val user: String? = req.path("user")
+    val list: String? = req.path("list")
+    val htmlPage = """
         <!DOCTYPE html>
         <html>
         <head></head>
         <body>
-            <h1 style="text-align:center;font-size:3em">
-                Hello Functional World!
-            </h1>
+            <h1>Zettai</h1>
+            <p>Here is the list <b>$list</b> of user <b>${user}</b></p>
         </body>
         </html>
     """
-
-
-fun main() {
-    app.asServer(Jetty(8080)).start()
+    return Response(Status.OK).body(htmlPage)
 }
