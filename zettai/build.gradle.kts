@@ -19,6 +19,11 @@ dependencies {
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
     implementation("ch.qos.logback:logback-classic:1.5.15")
 
+    // https://mvnrepository.com/artifact/org.http4k/http4k-client-jetty
+    testImplementation("org.http4k:http4k-client-jetty:5.47.0.0")
+
+    testImplementation("io.strikt:strikt-core:0.34.1")
+
     testImplementation(kotlin("test"))
 }
 

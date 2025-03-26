@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: spike Http4k">
+    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 제타이 시작하기">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/ToDoList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/ToDoList.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -80,6 +82,9 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/young/Github/from-objects-to-functions/zettai/src/main/kotlin/Main.kt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "configurable.group.language",
     "vue.rearranger.settings.migration": "true"
   }
@@ -89,7 +94,7 @@
       <recent name="chapter01._1_3" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt (1)">
+  <component name="RunManager" selected="Gradle.SeeATodoListAT">
     <configuration name="AdditionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -138,20 +143,29 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AdditionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="from-objects-to-functions.exercises.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="me.exercises.chapter01._1_3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="me.exercises.chapter01._1_3" />
-      <option name="MAIN_CLASS_NAME" value="me.exercises.chapter01._1_3.AdditionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SeeATodoListAT" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":zettai:test" />
+            <option value="--tests" />
+            <option value="&quot;SeeATodoListAT&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.zettai.MainKt" />
@@ -169,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SeeATodoListAT" />
         <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.AdditionTest" />
         <item itemvalue="Gradle.AdditionTest.add two numbers" />
-        <item itemvalue="JUnit.AdditionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +207,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742994458690</updated>
-      <workItem from="1742994460987" duration="5580000" />
+      <workItem from="1742994460987" duration="10051000" />
     </task>
     <task id="LOCAL-00001" summary="add: init">
       <option name="closed" value="true" />
@@ -211,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742999399697</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add: 유비쿼터스 언어">
+      <option name="closed" value="true" />
+      <created>1743000092555</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743000092555</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add: 제타이 시작하기">
+      <option name="closed" value="true" />
+      <created>1743000206704</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743000206704</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +261,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add: init" />
     <MESSAGE value="add: spike Http4k" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: spike Http4k" />
+    <MESSAGE value="add: 유비쿼터스 언" />
+    <MESSAGE value="add: 유비쿼터스 언어" />
+    <MESSAGE value="add: 제타이 시작하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 제타이 시작하기" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
