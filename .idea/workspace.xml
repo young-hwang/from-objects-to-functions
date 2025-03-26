@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="" />
+    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,9 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 2
 }]]></component>
@@ -58,6 +64,7 @@
     "JUnit.AdditionTest.executor": "Debug",
     "Kotlin.MainKt.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,7 +72,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/young/Github/from-objects-to-functions/zettai/src/main/kotlin/Main.kt",
-    "settings.editor.selected.configurable": "preferences.language.Kotlin.scripting",
+    "settings.editor.selected.configurable": "configurable.group.language",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -195,12 +202,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742994458690</updated>
-      <workItem from="1742994460987" duration="2327000" />
+      <workItem from="1742994460987" duration="4842000" />
     </task>
+    <task id="LOCAL-00001" summary="add: init">
+      <option name="closed" value="true" />
+      <created>1742996939756</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742996939756</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add: init" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

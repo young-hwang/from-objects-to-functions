@@ -1,10 +1,19 @@
 package me
 
-import org.http4k.core.HttpHandler
-import org.http4k.core.Response
-import org.http4k.core.Status
+import org.http4k.core.*
+import org.http4k.routing.bind
+import org.http4k.routing.routes
 import org.http4k.server.Jetty
 import org.http4k.server.asServer
+
+val app: HttpHandler = routes(
+    "/greetings" bind(Method.GET) to ::greetings,
+    "/data" bind(Method.GET) to ::receiveData
+)
+
+fun greetings(req: Request): Response = Response(Status.OK).body(htmlPage)
+
+fun receiveData(req: Request): Response = Response(Status.CREATED).body("Received: ${req.bodyString()}")
 
 val htmlPage = """
         <!DOCTYPE html>
@@ -18,8 +27,7 @@ val htmlPage = """
         </html>
     """
 
-val handler: HttpHandler = { Response(Status.OK).body(htmlPage) }
 
 fun main() {
-    handler.asServer(Jetty(8080)).start()
+    app.asServer(Jetty(8080)).start()
 }
