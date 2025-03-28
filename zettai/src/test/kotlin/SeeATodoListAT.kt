@@ -1,9 +1,7 @@
-import me.zettai.ToDoList
-import me.zettai.Zettai
+import me.zettai.*
 import org.http4k.client.JettyClient
 import org.http4k.core.Method
 import org.http4k.core.Request
-import org.http4k.core.Response
 import org.http4k.core.Status
 import org.http4k.server.Jetty
 import org.http4k.server.asServer
@@ -26,18 +24,34 @@ class SeeATodoListAT {
 
     fun getToDoList(user: String, listName: String): ToDoList {
         val client = JettyClient()
-        val request = Request(Method.GET, "http://localhost:8080/todo/$user/$listName")
+        val request = Request(Method.GET, "http://localhost:8081/todo/$user/$listName")
         val response = client(request)
         return if (response.status == Status.OK)
-                parseResonse(response)
+                parseResponse(response.bodyString())
             else
                 fail(response.toMessage())
     }
 
-    fun parseResonse(html: Response): ToDoList = TODO("parse the response")
+    private fun parseResponse(html: String): ToDoList {
+        val nameRegex = "<h2>.*<".toRegex()
+        val listName = ListName(extractListName(nameRegex, html))
+        val itemsRegex = "<td>.*?<".toRegex()
+        val items = itemsRegex.findAll(html)
+            .map { ToDoItem(extractItemDesc(it)) }.toList()
+        return ToDoList(listName, items)
+    }
 
-    fun startTheApplication(user: String, listName: String, foodToBuy: List<String>) {
-        val server = Zettai().asServer(Jetty(8081)).start()
-        // 사용자 목록을 설정
+    private fun extractListName(nameRegex: Regex, html: String): String  =
+        nameRegex.find(html)?.value
+            ?.substringAfter("<h2>")
+            ?.dropLast(1).orEmpty()
+
+    private fun extractItemDesc(matchResult: MatchResult): String  =
+        matchResult.value.substringAfter("<td>").dropLast(1)
+
+    fun startTheApplication(user: String, listName: String, items: List<String>) {
+        val toDoList = ToDoList(ListName(listName), items.map(::ToDoItem))
+        val lists = mapOf(User(user) to listOf( toDoList))
+        val server = Zettai(lists).asServer(Jetty(8081)).start()
     }
 }
