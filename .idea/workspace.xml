@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 맵으로부터 목록 제공하기">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exercises/src/test/kotlin/chapter02/_2_2/FunStackTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/Zettai.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/Zettai.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +48,7 @@
       <list>
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -63,41 +66,54 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.AdditionTest.add two numbers.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.AdditionTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.Build from-objects-to-functions.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PrinterTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.SeeATodoListAT.List owners can see their lists.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.SeeATodoListAT.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.AdditionTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Kotlin.MainKt (1).executor&quot;: &quot;Debug&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/young/Github/from-objects-to-functions/zettai/src/main/kotlin/Main.kt&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AdditionTest.add two numbers.executor": "Debug",
+    "Gradle.AdditionTest.executor": "Debug",
+    "Gradle.Build from-objects-to-functions.executor": "Run",
+    "Gradle.FunStackTest.executor": "Debug",
+    "Gradle.FunStackTest.push into the stack.executor": "Debug",
+    "Gradle.FunStackTest.push push pop.executor": "Debug",
+    "Gradle.FunStackTest.push push push pop.executor": "Debug",
+    "Gradle.PrinterTest.executor": "Debug",
+    "Gradle.SeeATodoListAT.List owners can see their lists.executor": "Debug",
+    "Gradle.SeeATodoListAT.executor": "Debug",
+    "JUnit.AdditionTest.executor": "Debug",
+    "Kotlin.MainKt (1).executor": "Debug",
+    "Kotlin.MainKt.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/young/Github/from-objects-to-functions/zettai/src/main/kotlin/Main.kt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="chapter02._2_2" />
+    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="chapter01._1_3" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SeeATodoListAT">
-    <configuration name="AdditionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.FunStackTest">
+    <configuration name="FunStackTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -110,7 +126,79 @@
           <list>
             <option value=":exercises:test" />
             <option value="--tests" />
-            <option value="&quot;me.exercises.chapter01._1_3.AdditionTest&quot;" />
+            <option value="&quot;me.exercises.chapter02._2_2.FunStackTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FunStackTest.push into the stack" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":exercises:test" />
+            <option value="--tests" />
+            <option value="&quot;me.exercises.chapter02._2_2.FunStackTest.push into the stack&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FunStackTest.push push pop" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":exercises:test" />
+            <option value="--tests" />
+            <option value="&quot;me.exercises.chapter02._2_2.FunStackTest.push push pop&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FunStackTest.push push push pop" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":exercises:test" />
+            <option value="--tests" />
+            <option value="&quot;me.exercises.chapter02._2_2.FunStackTest.push push push pop&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -145,51 +233,20 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="SeeATodoListAT.List owners can see their lists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":zettai:test" />
-            <option value="--tests" />
-            <option value="&quot;SeeATodoListAT.List owners can see their lists&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.zettai.MainKt" />
-      <module name="from-objects-to-functions.zettai.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.MainKt" />
-      <module name="from-objects-to-functions.zettai.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Gradle.FunStackTest" />
+      <item itemvalue="Gradle.FunStackTest.push into the stack" />
+      <item itemvalue="Gradle.FunStackTest.push push pop" />
+      <item itemvalue="Gradle.FunStackTest.push push push pop" />
+      <item itemvalue="Gradle.SeeATodoListAT" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FunStackTest" />
+        <item itemvalue="Gradle.FunStackTest.push push push pop" />
+        <item itemvalue="Gradle.FunStackTest.push push pop" />
+        <item itemvalue="Gradle.FunStackTest.push into the stack" />
         <item itemvalue="Gradle.SeeATodoListAT" />
-        <item itemvalue="Gradle.SeeATodoListAT.List owners can see their lists" />
-        <item itemvalue="Kotlin.MainKt (1)" />
-        <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.AdditionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +268,7 @@
       <updated>1742994458690</updated>
       <workItem from="1742994460987" duration="26264000" />
       <workItem from="1743173678670" duration="111000" />
-      <workItem from="1743173798224" duration="1436000" />
+      <workItem from="1743173798224" duration="17957000" />
     </task>
     <task id="LOCAL-00001" summary="add: init">
       <option name="closed" value="true" />
@@ -261,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743174965056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add: 맵으로부터 목록 제공하기">
+      <option name="closed" value="true" />
+      <created>1743175243255</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743175243255</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +337,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="128" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -284,6 +355,7 @@
     <MESSAGE value="add: 유비쿼터스 언" />
     <MESSAGE value="add: 유비쿼터스 언어" />
     <MESSAGE value="add: 제타이 시작하기" />
+    <MESSAGE value="add: 맵으로부터 목록 제공하" />
     <MESSAGE value="add: 맵으로부터 목록 제공하기" />
     <option name="LAST_COMMIT_MESSAGE" value="add: 맵으로부터 목록 제공하기" />
   </component>
