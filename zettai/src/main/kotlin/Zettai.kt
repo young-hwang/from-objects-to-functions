@@ -5,6 +5,9 @@ import org.http4k.routing.bind
 import org.http4k.routing.path
 import org.http4k.routing.routes
 
+typealias FUN<A, B> = (A) -> B
+infix fun<A, B, C> FUN<A, B>.antThen(other: FUN<B, C>): FUN<A, C> = { a: A -> other(this(a)) }
+
 data class ToDoList(val listName: ListName, val items: List<ToDoItem>)
 
 data class ListName(val name: String)
