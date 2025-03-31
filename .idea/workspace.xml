@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 부정적 사례 테스트">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zettai/src/test/kotlin/SeeATodoListAT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/test/kotlin/SeeATodoListAT.kt" afterDir="false" />
+    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 시나리오 액">
+      <change beforePath="$PROJECT_DIR$/zettai/src/test/kotlin/ApplicationForAT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/test/kotlin/ApplicationForAT.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +43,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Kotlin Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -113,7 +112,7 @@
       <recent name="chapter01._1_3" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SeeATodoListAT.List owners can see their lists">
+  <component name="RunManager" selected="Gradle.SeeATodoListAT">
     <configuration name="FunStackTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -138,30 +137,6 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FunStackTest.push push push pop" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":exercises:test" />
-            <option value="--tests" />
-            <option value="&quot;me.exercises.chapter02._2_2.FunStackTest.push push push pop&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="RpnCalculatorTest.reverse polish notation calculate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -176,6 +151,30 @@
             <option value=":exercises:test" />
             <option value="--tests" />
             <option value="&quot;me.exercises.chapter02._2_3.RpnCalculatorTest.reverse polish notation calculate&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SeeATodoListAT" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":zettai:test" />
+            <option value="--tests" />
+            <option value="&quot;SeeATodoListAT&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -236,18 +235,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.FunStackTest" />
-      <item itemvalue="Gradle.FunStackTest.push push push pop" />
       <item itemvalue="Gradle.RpnCalculatorTest.reverse polish notation calculate" />
       <item itemvalue="Gradle.SeeATodoListAT.Only owners can see their lists" />
+      <item itemvalue="Gradle.SeeATodoListAT" />
       <item itemvalue="Gradle.SeeATodoListAT.List owners can see their lists" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SeeATodoListAT" />
         <item itemvalue="Gradle.SeeATodoListAT.List owners can see their lists" />
         <item itemvalue="Gradle.SeeATodoListAT.Only owners can see their lists" />
         <item itemvalue="Gradle.RpnCalculatorTest.reverse polish notation calculate" />
         <item itemvalue="Gradle.FunStackTest" />
-        <item itemvalue="Gradle.FunStackTest.push push push pop" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +268,7 @@
       <updated>1742994458690</updated>
       <workItem from="1742994460987" duration="26264000" />
       <workItem from="1743173678670" duration="111000" />
-      <workItem from="1743173798224" duration="34366000" />
+      <workItem from="1743173798224" duration="43188000" />
     </task>
     <task id="LOCAL-00001" summary="add: init">
       <option name="closed" value="true" />
@@ -367,7 +366,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743426169914</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add: 시나리오 액터">
+      <option name="closed" value="true" />
+      <created>1743426964347</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743426964347</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add: 시나리오 액터">
+      <option name="closed" value="true" />
+      <created>1743436632089</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743436632090</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +418,8 @@
     <MESSAGE value="add: exercises 2.2" />
     <MESSAGE value="add: exercises 2.3" />
     <MESSAGE value="add: 부정적 사례 테스트" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 부정적 사례 테스트" />
+    <MESSAGE value="add: 시나리오 액터" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 시나리오 액터" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
