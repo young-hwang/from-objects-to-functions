@@ -18,13 +18,11 @@ import kotlin.test.DefaultAsserter.fail
 class SeeATodoListAT {
     @Test
     fun `List owners can see their lists`() {
-        val user = "frank"
         val listName = "shopping"
         val foodToBuy = listOf("carrot", "apples", "milk")
-        startTheApplication(user, listName, foodToBuy)
-        val list = getToDoList(user, listName)
-        expectThat(list.listName.name).isEqualTo(listName)
-        expectThat(list.items.map { it.description }).isEqualTo(foodToBuy)
+        val frank = ToDoListOwner("Frank")
+        startTheApplication(frank.name, createList(listName, foodToBuy))
+        frank.canSeeTheList(listName, foodToBuy)
     }
 
     @Test
@@ -68,6 +66,14 @@ class SeeATodoListAT {
         val lists = mapOf(User(user) to listOf(toDoList))
         val server = Zettai(lists).asServer(Jetty(8081)).start()
     }
+
+    fun startTheApplication(user: String, todoList: ToDoList ) {
+        val lists = mapOf(User(user) to listOf(todoList))
+        val server = Zettai(lists).asServer(Jetty(8081)).start()
+    }
+
+    private fun createList(listName: String, items: List<String>): ToDoList =
+        ToDoList(ListName(listName), items.map(::ToDoItem))
 
     interface ScenarioActor {
         val name: String
