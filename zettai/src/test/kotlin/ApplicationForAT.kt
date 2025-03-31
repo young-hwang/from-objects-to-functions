@@ -1,18 +1,27 @@
 import me.zettai.ListName
 import me.zettai.ToDoItem
 import me.zettai.ToDoList
+import org.eclipse.jetty.http.HttpTester.parseResponse
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Status
 import kotlin.test.DefaultAsserter.fail
 
-class ApplicationForAT(val client: HttpHandler, val server: AutoCloseable) {
-    fun runScenario(steps: (ApplicationForAT) -> Unit) {
-        server.use { steps(this) }
+interface Actions {
+    fun getToDoList(user: String, listName: String): ToDoList?
+}
+
+typealias Step = Actions.() -> Unit
+
+class ApplicationForAT(val client: HttpHandler, val server: AutoCloseable): Actions {
+    fun runScenario(vararg steps: Step) {
+        server.use {
+            steps.forEach{ step -> step(this)}
+        }
     }
 
-    fun getToDoList(user: String, listName: String): ToDoList {
+    override fun getToDoList(user: String, listName: String): ToDoList {
         val request = Request(Method.GET, "/todo/$user/$listName")
         val response = client(request)
         return if (response.status == Status.OK)

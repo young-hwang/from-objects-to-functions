@@ -33,19 +33,19 @@ class SeeATodoListAT {
     @Test
     fun `List owners can see their lists`() {
         val app = startTheApplication(lists)
-        app.runScenario {
-            frank.canSeeTheList("shopping", shoppingItems, it)
-            bob.canSeeTheList("gardening", gardenItems, it)
-        }
+        app.runScenario(
+            frank.canSeeTheList("shopping", shoppingItems),
+            bob.canSeeTheList("gardening", gardenItems)
+        )
     }
 
     @Test
     fun `Only owners can see their lists`() {
         val app = startTheApplication(lists)
-        app.runScenario {
-            frank.cannotSeeTheList("gardening", it)
-            bob.cannotSeeTheList("shopping", it)
-        }
+        app.runScenario(
+            frank.cannotSeeTheList("gardening"),
+            bob.cannotSeeTheList("shopping")
+        )
     }
 
     fun startTheApplication(lists: Map<User, List<ToDoList>>): ApplicationForAT {
@@ -66,15 +66,15 @@ class SeeATodoListAT {
     }
 
     class ToDoListOwner(override val name: String) : ScenarioActor {
-        fun canSeeTheList(listName: String, items: List<String>, app: ApplicationForAT) {
+        fun canSeeTheList(listName: String, items: List<String>): Step = {
             val expectedList = createList(listName, items)
-            val list = app.getToDoList(name, listName)
+            val list = getToDoList(name, listName)
             expectThat(list).isEqualTo(expectedList)
         }
 
-        fun cannotSeeTheList(listName: String, app: ApplicationForAT) {
+        fun cannotSeeTheList(listName: String): Step = {
             expectThrows<AssertionError> {
-                app.getToDoList(name, listName)
+                getToDoList(name, listName)
             }
         }
 
