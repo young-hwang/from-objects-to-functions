@@ -1,8 +1,12 @@
+import com.ubertob.pesticide.core.DDT
+import com.ubertob.pesticide.core.DomainDrivenTest
+import com.ubertob.pesticide.core.DomainOnly
 import me.zettai.ListName
 import me.zettai.ToDoItem
 import me.zettai.ToDoList
 import me.zettai.User
 import me.zettai.Zettai
+import me.zettai.ZettaiHub
 import org.http4k.client.JettyClient
 import org.http4k.core.Uri
 import org.http4k.core.then
@@ -13,6 +17,20 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.api.expectThrows
 import strikt.assertions.isEqualTo
+
+typealias ZettaiDDT = DomainDrivenTest<ZettaiActions>
+
+fun allActions() = setOf(
+    DomainOnlyActions(),
+    HttpActions()
+)
+
+class SeeATodoListDDT: ZettaiDDT(allActions()) {
+    @DDT
+    fun `List owners can see their lists`() = ddtScenario {
+        TODO()
+    }
+}
 
 class SeeATodoListAT {
     val frank = ToDoListOwner("frank")
@@ -32,11 +50,16 @@ class SeeATodoListAT {
 
     @Test
     fun `List owners can see their lists`() {
-        val app = startTheApplication(lists)
-        app.runScenario(
-            frank.canSeeTheList("shopping", shoppingItems),
-            bob.canSeeTheList("gardening", gardenItems)
+        val apps = listOf(
+            startTheApplicationDomainOnly(lists),
+            startTheApplicationHttp(lists)
         )
+        apps.forEach { app ->
+            app.runScenario(
+                frank.canSeeTheList("shopping", shoppingItems),
+                bob.canSeeTheList("gardening", gardenItems)
+            )
+        }
     }
 
     @Test
@@ -46,6 +69,13 @@ class SeeATodoListAT {
             frank.cannotSeeTheList("gardening"),
             bob.cannotSeeTheList("shopping")
         )
+    }
+
+    @Test
+    fun `get list by user and name`() {
+//        val hub = ZettaiHub(listMap)
+//        val myList = hub.getList(user, list.listName)
+//        expectThat(myList).isEqualTo(list)
     }
 
     fun startTheApplication(lists: Map<User, List<ToDoList>>): ApplicationForAT {
@@ -83,3 +113,4 @@ class SeeATodoListAT {
     }
 
 }
+

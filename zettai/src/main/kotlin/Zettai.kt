@@ -20,19 +20,22 @@ enum class ToDoStatus { Todo, InProgress, Done, Blocked }
 
 data class HtmlPage(val raw: String)
 
-class Zettai(val lists: Map<User, List<ToDoList>>) : HttpHandler {
+data class Zettai(val lists: ZettaiHub) : HttpHandler {
     val routes = routes(
         "/todo/{user}/{list}" bind (Method.GET) to ::showList
     )
 
     override fun invoke(request: Request): Response = routes(request)
 
+    // 스포크
     fun extractListData(request: Request): Pair<User, ListName> =
         User(request.path("user").orEmpty()) to ListName(request.path("list").orEmpty())
 
+    // 허브
     fun fetchListContent(listId: Pair<User, ListName>): ToDoList =
-        lists[listId.first]?.firstOrNull { it.listName == listId.second } ?: error("List unknown")
+        lists.getList(listId.first, listId.second) ?: error("List unknown")
 
+    // 스포크
     fun renderHtml(toDoList: ToDoList): HtmlPage = HtmlPage("""
         <!DOCTYPE html>
         <html>
@@ -50,6 +53,7 @@ class Zettai(val lists: Map<User, List<ToDoList>>) : HttpHandler {
         """<tr><td>${it.description}</td></tr>""".trimIndent()
     }.joinToString("")
 
+    // 스포크
     fun createResponse(html: HtmlPage): Response = Response(Status.OK).body(html.raw)
 
     fun showList(request: Request): Response =
@@ -57,4 +61,13 @@ class Zettai(val lists: Map<User, List<ToDoList>>) : HttpHandler {
             .let(::fetchListContent)
             .let(::renderHtml)
             .let(::createResponse)
+}
+
+interface ZettaiHub {
+    fun getList(user: User, listName: ListName): ToDoList?
+}
+
+class TodoDoListHub(val lists: Map<User, List<ToDoList>>): ZettaiHub {
+    override fun getList(user: User, listName: ListName): ToDoList? =
+        lists[user]?.firstOrNull { it.listName == listName }
 }

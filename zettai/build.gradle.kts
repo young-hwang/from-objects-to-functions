@@ -25,6 +25,8 @@ dependencies {
     testImplementation("io.strikt:strikt-core:0.34.1")
 
     testImplementation(kotlin("test"))
+
+    testImplementation("com.ubertob.pesticide:pesticide-core:1.6.6")
 }
 
 tasks.test {

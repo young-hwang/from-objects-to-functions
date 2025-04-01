@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 시나리오 액터">
+    <list default="true" id="d38cf95b-cc92-43d9-8d0e-9aa256df2186" name="Changes" comment="add: 함수로 표현한 단계">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zettai/src/test/kotlin/ApplicationForAT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/test/kotlin/ApplicationForAT.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zettai/src/main/kotlin/Zettai.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/main/kotlin/Zettai.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zettai/src/test/kotlin/SeeATodoListAT.kt" beforeDir="false" afterPath="$PROJECT_DIR$/zettai/src/test/kotlin/SeeATodoListAT.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,9 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -107,6 +108,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
       <recent name="chapter02._2_3" />
       <recent name="chapter02._2_2" />
     </key>
@@ -270,7 +272,7 @@
       <updated>1742994458690</updated>
       <workItem from="1742994460987" duration="26264000" />
       <workItem from="1743173678670" duration="111000" />
-      <workItem from="1743173798224" duration="44922000" />
+      <workItem from="1743173798224" duration="53177000" />
     </task>
     <task id="LOCAL-00001" summary="add: init">
       <option name="closed" value="true" />
@@ -392,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743436814100</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add: 함수로 표현한 단계">
+      <option name="closed" value="true" />
+      <created>1743438868266</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743438868266</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +440,8 @@
     <MESSAGE value="add: 부정적 사례 테스트" />
     <MESSAGE value="add: 시나리오 액" />
     <MESSAGE value="add: 시나리오 액터" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 시나리오 액터" />
+    <MESSAGE value="add: 함수로 표현한 단계" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 함수로 표현한 단계" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
