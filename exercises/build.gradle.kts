@@ -6,11 +6,16 @@ plugins {
     alias(libs.plugins.kotlinPluginSerialization)
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     // Apply the kotlinx bundle of dependencies from the version catalog (`gradle/libs.versions.toml`).
     implementation(libs.bundles.kotlinxEcosystem)
 
     testImplementation(kotlin("test"))
     testImplementation("io.strikt:strikt-core:0.34.1")
+    testImplementation("com.ubertob.pesticide:pesticide-core:1.6.6")
 }
 
