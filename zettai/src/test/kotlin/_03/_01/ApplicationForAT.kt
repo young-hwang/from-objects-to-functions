@@ -1,6 +1,5 @@
 package me.zettai._03._01
 
-import org.eclipse.jetty.http.HttpTester.parseResponse
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
 import org.http4k.core.Request
