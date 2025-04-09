@@ -1,4 +1,4 @@
-package chapter03._3_3
+package me.exercise.chapter03._3_3
 
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
