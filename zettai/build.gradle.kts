@@ -27,6 +27,8 @@ dependencies {
     testImplementation(kotlin("test"))
 
     testImplementation("com.ubertob.pesticide:pesticide-core:1.6.6")
+
+    testImplementation("org.jsoup:jsoup:1.12.1")
 }
 
 tasks.test {
