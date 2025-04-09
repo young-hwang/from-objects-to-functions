@@ -13,6 +13,10 @@ class Cashier {
         offers3x2.clear()
     }
 
+    fun put3x2(item: Item) {
+        offers3x2.add(item)
+    }
+
     fun totalFor(actorName: String): Double = customerTotal[actorName] ?: 0.0
 
     fun addItem(actorName: String, qty: Int, item: Item) {
