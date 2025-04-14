@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm")
 }
 
-group = "me"
+group = "me.zettai"
 version = "unspecified"
 
 repositories {
