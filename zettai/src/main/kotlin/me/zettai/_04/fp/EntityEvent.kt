@@ -1,6 +1,5 @@
 package me.zettai._04.fp
 
-import java.sql.RowId
 import java.util.UUID
 
 data class EntityId(val raw: UUID) {
