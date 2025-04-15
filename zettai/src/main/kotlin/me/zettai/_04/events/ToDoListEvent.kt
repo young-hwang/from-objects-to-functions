@@ -35,7 +35,7 @@ data class ActiveToDoList internal constructor(
 ) : ToDoListState() {
     override fun combine(event: ToDoListEvent): ToDoListState =
         when (event) {
-            is ItemAdded ->
+            is ItemAdded -> copy(items = items + event.item)
         }
 }
 
