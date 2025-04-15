@@ -2,6 +2,7 @@ package me.zettai._04.ddt.tooling
 
 import com.ubertob.pesticide.core.DdtActions
 import com.ubertob.pesticide.core.DdtProtocol
+import com.ubertob.pesticide.core.DomainOnly
 import me.zettai._04.domain.ListName
 import me.zettai._04.domain.ToDoItem
 import me.zettai._04.domain.ToDoList
@@ -19,3 +20,8 @@ interface ZettaiActions : DdtActions<DdtProtocol> {
     fun allUserLists(user: User): Outcome<ZettaiError, List<ListName>>
     fun whatsNext(user: User): Outcome<ZettaiError, List<ToDoItem>>
 }
+
+fun allActions() = setOf(
+    DomainOnlyActions(),
+    HttpActions(),
+)
