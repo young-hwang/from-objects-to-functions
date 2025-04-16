@@ -1,6 +1,7 @@
 package me.zettai._04.commands
 
 import me.zettai._04.domain.ToDoListRetriever
+import me.zettai._04.events.InitialState
 import me.zettai._04.events.ToDoListEvent
 import me.zettai._04.fp.Outcome
 import me.zettai._04.fp.OutcomeError

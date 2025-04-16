@@ -5,6 +5,7 @@ import com.ubertob.pesticide.core.DomainDrivenTest
 import me.zettai._04.ddt.tooling.ToDoListOwner
 import me.zettai._04.ddt.tooling.ZettaiActions
 import me.zettai._04.ddt.tooling.allActions
+import java.time.LocalDate
 
 class ModifyAToDoListDDT : DomainDrivenTest<ZettaiActions>(allActions()) {
     val ann by NamedActor(::ToDoListOwner)
@@ -21,8 +22,7 @@ class ModifyAToDoListDDT : DomainDrivenTest<ZettaiActions>(allActions()) {
                 "diy",
                 listOf("fix the gate", "paint the shelf", "fix the gate")
             )
-
-        )
+        ).wip(LocalDate.of(2025, 4, 15), "Not implemented yet")
     }
 
 }
