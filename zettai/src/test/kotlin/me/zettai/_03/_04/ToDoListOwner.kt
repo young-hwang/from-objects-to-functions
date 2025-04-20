@@ -13,7 +13,7 @@ interface ScenarioActor {
     val name: String
 }
 
-class ToDoListOwner(override val name: String): ScenarioActor {
+class ToDoListOwner(override val name: String) : ScenarioActor {
     fun canSeeTheList(listName: String, items: List<String>) {
         val expectedList = createTodoList(listName, items)
         val list = getToList(name, listName)
@@ -57,8 +57,8 @@ class ToDoListOwner(override val name: String): ScenarioActor {
     private fun parseResponse(html: String): ToDoList {
         val nameRegex = "<h2>.*<".toRegex()
         val listName = ListName(extractListName(nameRegex, html))
-        val itemsRegex = "<li>.*?<".toRegex()
-        val items = itemsRegex.findAll(html).map { ToDoItem(extractItemDesc(it))}.toList()
+        val itemsRegex = "<td>.*?<".toRegex()
+        val items = itemsRegex.findAll(html).map { ToDoItem(extractItemDesc(it)) }.toList()
         return ToDoList(listName, items)
     }
 
@@ -72,5 +72,5 @@ class ToDoListOwner(override val name: String): ScenarioActor {
             .orEmpty()
 
     private fun createTodoList(listName: String, items: List<String>): ToDoList =
-        ToDoList(ListName(listName), items.map { ToDoItem(it)})
+        ToDoList(ListName(listName), items.map { ToDoItem(it) })
 }

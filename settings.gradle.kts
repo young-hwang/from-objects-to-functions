@@ -25,3 +25,4 @@ include(":exercises")
 
 rootProject.name = "from-objects-to-functions"
 include("zettai")
+include("zettai-04")
