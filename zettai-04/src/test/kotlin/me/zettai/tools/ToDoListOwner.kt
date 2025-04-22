@@ -13,7 +13,7 @@ import strikt.assertions.isNotNull
 class ToDoListOwner(override val name: String) : DdtActor<ZettaiActions>() {
     val user = User(name)
 
-    fun `can see #listName with #itemnames`(
+    fun `can see #listname with #itemnames`(
         listName: String,
         expectedItems: List<String>
     ): DdtStep<ZettaiActions, Unit> =

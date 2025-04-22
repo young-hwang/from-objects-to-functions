@@ -23,4 +23,10 @@ data class ListName(val name: String) {
     }
 }
 
-data class ToDoItem(val description: String, val dueDate: String)
+data class ToDoItem(
+    val description: String,
+    val dueDate: LocalDate? = null,
+    val status: ToDoStatus = ToDoStatus.Todo
+)
+
+enum class ToDoStatus { Todo, InProgress, Done, Blocked }
