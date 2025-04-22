@@ -1,5 +1,7 @@
 package me.zettai.domain
 
+import java.time.LocalDate
+
 val pathElementPattern = Regex("""[a-zA-Z0-9\-]+""")
 
 data class ToDoList(val listName: ListName, val items: List<ToDoItem>) {
@@ -21,4 +23,4 @@ data class ListName(val name: String) {
     }
 }
 
-data class ToDoItem(val description: String)
+data class ToDoItem(val description: String, val dueDate: String)

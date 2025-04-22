@@ -17,8 +17,7 @@ import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
 import org.http4k.core.body.Form
-import org.http4k.core.with
-import org.http4k.metrics.MetricsDefaults.Companion.client
+import org.http4k.core.body.toBody
 import org.http4k.server.Jetty
 import org.http4k.server.asServer
 import strikt.api.expectThat
@@ -42,9 +41,7 @@ data class HttpActions(val env: String = "local") : ZettaiActions {
 
     override fun tearDown(): HttpActions = also { server.stop() }
 
-    override fun getToDoList(user: User, listName: ListName): ToDoList? {
-        TODO()
-    }
+    override fun getToDoList(user: User, listName: ListName): ToDoList? = TODO()
 
     override fun addListItem(user: User, listName: ListName, item: ToDoItem) {
         val response = submitToZettai(
@@ -54,8 +51,10 @@ data class HttpActions(val env: String = "local") : ZettaiActions {
         expectThat(response.status).isEqualTo(Status.SEE_OTHER)
     }
 
+    private fun todoListUrl(user: User, listName: ListName): String = "todo/${user.name}/${listName.name}"
+
     private fun submitToZettai(path: String, webForm: Form): Response =
-        client(log(Request(Method.POST, "http://localhost:$port/$path").body(webForm)))
+        client(log(Request(Method.POST, "http://localhost:$port/$path").body(webForm.toBody())))
 
     fun <T> log(something: T): T {
         println("--- $something")
