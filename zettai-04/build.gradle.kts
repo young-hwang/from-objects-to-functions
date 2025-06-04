@@ -1,13 +1,9 @@
 plugins {
-    kotlin("jvm")
+    id("buildsrc.convention.kotlin-jvm")
 }
 
 group = "me.zettai"
 version = "unspecified"
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     // https://mvnrepository.com/artifact/org.http4k/http4k-core
@@ -29,7 +25,6 @@ dependencies {
     testImplementation("com.ubertob.pesticide:pesticide-core:1.6.6")
 
     testImplementation("org.jsoup:jsoup:1.12.1")
-    testImplementation(kotlin("test"))
 }
 
 tasks.test {

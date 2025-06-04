@@ -4,7 +4,6 @@ import com.ubertob.pesticide.core.DdtProtocol
 import com.ubertob.pesticide.core.DomainSetUp
 import com.ubertob.pesticide.core.Http
 import com.ubertob.pesticide.core.Ready
-import me.zettai.HtmlPage
 import me.zettai.Zettai
 import me.zettai.domain.ListName
 import me.zettai.domain.ToDoItem
@@ -13,6 +12,7 @@ import me.zettai.domain.ToDoListFetchFromMap
 import me.zettai.domain.ToDoListHub
 import me.zettai.domain.ToDoStatus
 import me.zettai.domain.User
+import me.zettai.ui.HtmlPage
 import org.http4k.client.JettyClient
 import org.http4k.core.Method
 import org.http4k.core.Request

@@ -15,16 +15,14 @@ fun renderPage(toDoList: ToDoList): HtmlPage =
             <h1>Zettai</h1>
             <h2>${toDoList.listName.name}</h2>
             <table>
-                <tbody>${renderItems(toDoList.items)}</tbody>
+                <tbody>${toDoList.renderItems()}</tbody>
             </table>
         </body>
         </html>
     """.trimIndent()
     )
 
-private fun ToDoList.renderItems() = {}
+private fun ToDoList.renderItems() = items.joinToString("", transform = ::renderItem)
 
-fun renderItems(items: List<ToDoItem>): String = items.map {
-    """<tr><td>${it.description}</td></tr>""".trimIndent()
-}.joinToString("")
+private fun renderItem(it: ToDoItem) = """<tr><td>${it.description}</td></tr>""".trimIndent()
 
