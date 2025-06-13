@@ -15,15 +15,23 @@ class DomainOnlyActions : ZettaiActions {
     override val protocol: DdtProtocol = DomainOnly
     override fun prepare(): DomainSetUp = Ready
 
-    private val store: MutableMap<User, MutableMap<ListName, ToDoList>> = mutableMapOf()
+    private val store: MutableMap<User, MutableMap<ListName, ToDoList>> =
+        mutableMapOf()
     private val fetcher = ToDoListFetchFromMap(store)
     private val hub = ToDoListHub(fetcher)
 
-    override fun ToDoListOwner.`starts with a list`(listName: String, items: List<String>) {
+    override fun ToDoListOwner.`starts with a list`(
+        listName: String,
+        items: List<String>
+    ) {
         val newList = ToDoList.build(listName, items)
         fetcher.assignListToUser(user, newList)
     }
 
-    override fun getToDoList(user: User, listName: ListName): ToDoList? = hub.getList(user, listName)
-    override fun addListItem(user: User, listName: ListName, item: ToDoItem) = hub.addItemToList(user, listName, item)
+    override fun getToDoList(user: User, listName: ListName): ToDoList? =
+        hub.getList(user, listName)
+
+    override fun addListItem(user: User, listName: ListName, item: ToDoItem) {
+        hub.addItemToList(user, listName, item)
+    }
 }

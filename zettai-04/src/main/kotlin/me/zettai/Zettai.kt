@@ -17,7 +17,8 @@ import org.http4k.routing.routes
 
 typealias FUN<A, B> = (A) -> B
 
-infix fun <A, B, C> FUN<A, B>.antThen(other: FUN<B, C>): FUN<A, C> = { a: A -> other(this(a)) }
+infix fun <A, B, C> FUN<A, B>.antThen(other: FUN<B, C>): FUN<A, C> =
+    { a: A -> other(this(a)) }
 
 
 data class Zettai(val hub: ZettaiHub) : HttpHandler {
@@ -29,19 +30,27 @@ data class Zettai(val hub: ZettaiHub) : HttpHandler {
 
     // 스포크
     fun extractListData(request: Request): Pair<User, ListName> =
-        User(request.path("user").orEmpty()) to ListName(request.path("list").orEmpty())
+        User(request.path("user").orEmpty()) to ListName(
+            request.path("list").orEmpty()
+        )
 
     // 허브
     fun fetchListContent(listId: Pair<User, ListName>): ToDoList =
         hub.getList(listId.first, listId.second) ?: error("List unknown")
 
     // 스포크
-    fun createResponse(html: HtmlPage): Response = Response(Status.OK).body(html.raw)
+    fun createResponse(html: HtmlPage): Response =
+        Response(Status.OK).body(html.raw)
 
-    fun showList(request: Request): Response =
-        request
-            .let(::extractListData)
-            .let(::fetchListContent)
-            .let(::renderPage)
-            .let(::createResponse)
+    fun showList(request: Request): Response {
+        val user = request.path("user").orEmpty().let(::User)
+        val listName = request.path("list").orEmpty()
+            .let(ListName.Companion::fromUntrusted)
+
+        return listName
+            ?.let({ hub.getList(user, it) })
+            ?.let(::renderPage)
+            ?.let(::createResponse)
+            ?: Response(Status.NOT_FOUND)
+    }
 }

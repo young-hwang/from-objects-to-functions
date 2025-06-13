@@ -1,10 +1,10 @@
 package me.zettai.stories
 
-import me.zettai.HtmlPage
 import me.zettai.domain.ListName
 import me.zettai.domain.ToDoItem
 import me.zettai.domain.ToDoList
 import me.zettai.domain.User
+import me.zettai.ui.HtmlPage
 import org.http4k.client.JettyClient
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method
@@ -69,7 +69,10 @@ class SeeATodoListAT {
         return ApplicationForAT(client, server)
     }
 
-    private fun createTodoList(listName: String, items: List<String>): ToDoList =
+    private fun createTodoList(
+        listName: String,
+        items: List<String>
+    ): ToDoList =
         ToDoList(ListName(listName), items.map { ToDoItem(it) })
 }
 
@@ -83,7 +86,8 @@ interface Actions {
 
 typealias Step = Actions.() -> Unit
 
-class ApplicationForAT(val client: HttpHandler, val server: AutoCloseable) : Actions {
+class ApplicationForAT(val client: HttpHandler, val server: AutoCloseable) :
+    Actions {
     override fun getToDoList(user: String, listName: String): ToDoList {
         val request = Request(Method.GET, "/todo/$user/$listName")
         val response = client(request)
@@ -130,7 +134,10 @@ class ToDoListOwner(override val name: String) : ScenarioActor {
         }
     }
 
-    private fun createTodoList(listName: String, items: List<String>): ToDoList =
+    private fun createTodoList(
+        listName: String,
+        items: List<String>
+    ): ToDoList =
         ToDoList(ListName(listName), items.map { ToDoItem(it) })
 }
 
@@ -143,7 +150,9 @@ data class Zettai(val lists: Map<User, List<ToDoList>>) : HttpHandler {
 
     // 스포크
     fun extractListData(request: Request): Pair<User, ListName> =
-        User(request.path("user").orEmpty()) to ListName(request.path("list").orEmpty())
+        User(request.path("user").orEmpty()) to ListName(
+            request.path("list").orEmpty()
+        )
 
     // 허브
     fun fetchListContent(listId: Pair<User, ListName>): ToDoList =
@@ -172,7 +181,8 @@ data class Zettai(val lists: Map<User, List<ToDoList>>) : HttpHandler {
     }.joinToString("")
 
     // 스포크
-    fun createResponse(html: HtmlPage): Response = Response(Status.OK).body(html.raw)
+    fun createResponse(html: HtmlPage): Response =
+        Response(Status.OK).body(html.raw)
 
     fun showList(request: Request): Response =
         request

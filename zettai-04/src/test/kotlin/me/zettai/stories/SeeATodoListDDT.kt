@@ -11,7 +11,7 @@ class SeeATodoListDDT : DomainDrivenTest<ZettaiActions>(allActions()) {
     val shoppingListName = "shopping"
     val foodToBuy = listOf("carrot", "apples", "milk")
 
-    val bob = ToDoListOwner("bob")
+    val bob by NamedActor(::ToDoListOwner)
     val gardenListName = "gardening"
     val gardenItems = listOf("fix the fence", "mowing the lawn")
 
@@ -21,8 +21,8 @@ class SeeATodoListDDT : DomainDrivenTest<ZettaiActions>(allActions()) {
             frank.`starts with a list`(shoppingListName, foodToBuy)
             bob.`starts with a list`(gardenListName, gardenItems)
         }.thenPlay(
-            frank.`can see #listName with #itemnames`("shopping", foodToBuy),
-            bob.`can see #listName with #itemnames`("gardening", gardenItems)
+            frank.`can see #listname with #itemnames`("shopping", foodToBuy),
+            bob.`can see #listname with #itemnames`("gardening", gardenItems)
         )
     }
 

@@ -34,11 +34,24 @@ class ToDoListHubTest {
         expectThat(myList).isEqualTo(frankList)
     }
 
-    private fun createTodoList(listName: String, items: List<String>): ToDoList =
-        ToDoList(ListName(listName), items.map { ToDoItem(it, LocalDate.now().toString()) })
+    private fun createTodoList(
+        listName: String,
+        items: List<String>
+    ): ToDoList =
+        ToDoList(
+            ListName(listName),
+            items.map { ToDoItem(it, LocalDate.now()) })
 }
 
 class ToDoListHub(val lists: Map<User, List<ToDoList>>) : ZettaiHub {
     override fun getList(user: User, listName: ListName): ToDoList? =
         lists[user]?.firstOrNull { it.listName == listName }
+
+    override fun addItemToList(
+        user: User,
+        listName: ListName,
+        item: ToDoItem
+    ): ToDoList? {
+        TODO("Not yet implemented")
+    }
 }

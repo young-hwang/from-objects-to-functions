@@ -6,9 +6,9 @@ import me.zettai.domain.ListName
 import me.zettai.domain.ToDoItem
 import me.zettai.domain.User
 import strikt.api.expectThat
-import strikt.api.expectThrows
 import strikt.assertions.containsExactlyInAnyOrder
 import strikt.assertions.isNotNull
+import strikt.assertions.isNull
 
 class ToDoListOwner(override val name: String) : DdtActor<ZettaiActions>() {
     val user = User(name)
@@ -18,7 +18,8 @@ class ToDoListOwner(override val name: String) : DdtActor<ZettaiActions>() {
         expectedItems: List<String>
     ): DdtStep<ZettaiActions, Unit> =
         step(listName, expectedItems) {
-            val list = getToDoList(user, ListName.fromUntrustedOrThrow(listName))
+            val list =
+                getToDoList(user, ListName.fromUntrustedOrThrow(listName))
             expectThat(list)
                 .isNotNull()
                 .get { items.map { it.description } }
@@ -27,12 +28,15 @@ class ToDoListOwner(override val name: String) : DdtActor<ZettaiActions>() {
 
     fun `cannot see #listname`(listName: String): DdtStep<ZettaiActions, Unit> =
         step(listName) {
-            expectThrows<AssertionError> {
+            val list =
                 getToDoList(user, ListName.fromUntrustedOrThrow(listName))
-            }
+            expectThat(list).isNull()
         }
 
-    fun `can add #item to #listname`(itemName: String, listName: String): DdtStep<ZettaiActions, Unit> =
+    fun `can add #item to #listname`(
+        itemName: String,
+        listName: String
+    ): DdtStep<ZettaiActions, Unit> =
         step(itemName, listName) {
             val item = ToDoItem(itemName)
             addListItem(user, ListName.fromUntrustedOrThrow(listName), item)

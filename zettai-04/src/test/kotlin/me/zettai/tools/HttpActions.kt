@@ -13,6 +13,8 @@ import me.zettai.domain.ToDoListHub
 import me.zettai.domain.ToDoStatus
 import me.zettai.domain.User
 import me.zettai.ui.HtmlPage
+import me.zettai.ui.toIsoLocalDate
+import me.zettai.ui.toStatus
 import org.http4k.client.JettyClient
 import org.http4k.core.Method
 import org.http4k.core.Request
@@ -47,7 +49,8 @@ data class HttpActions(val env: String = "local") : ZettaiActions {
     override fun tearDown(): HttpActions = also { server.stop() }
 
     override fun getToDoList(user: User, listName: ListName): ToDoList? {
-        val response = callZettai(Method.GET, "/todo/$user/$listName")
+        val response =
+            callZettai(Method.GET, todoListUrl(user, listName))
 
         if (response.status == Status.NOT_FOUND)
             return null
@@ -71,37 +74,53 @@ data class HttpActions(val env: String = "local") : ZettaiActions {
                     it.select("td")[2].text().orEmpty().toStatus()
                 )
             }
-//            .map { (name, date, status) ->
-//                ToDoItem(name, date, status)
-//            }
+            .map { (name, date, status) ->
+                ToDoItem(name, date, status)
+            }
 
     private fun HtmlPage.parse(): Document = Jsoup.parse(raw)
 
     override fun addListItem(user: User, listName: ListName, item: ToDoItem) {
         val response = submitToZettai(
             todoListUrl(user, listName),
-            listOf("itemname" to item.description, "itemdue" to item.dueDate?.toString())
+            listOf(
+                "itemname" to item.description,
+                "itemdue" to item.dueDate?.toString()
+            )
         )
         expectThat(response.status).isEqualTo(Status.SEE_OTHER)
     }
 
-    override fun ToDoListOwner.`starts with a list`(listName: String, items: List<String>) {
-        TODO("Not yet implemented")
+    override fun ToDoListOwner.`starts with a list`(
+        listName: String,
+        items: List<String>
+    ) {
+        fetcher.assignListToUser(
+            user,
+            ToDoList(ListName(listName), items.map { ToDoItem(it) })
+        )
     }
 
-    private fun parseResponse(html: String): ToDoList {
-        val nameRegex = "<h2>.*<".toRegex()
-        val listName = ListName(extractListName(nameRegex, html))
-        val itemsRegex = "<td>.*?<".toRegex()
-        val items = itemsRegex.findAll(html)
-            .map { ToDoItem(extractItemDesc(it)) }.toList()
-        return ToDoList(listName, items)
-    }
+//    private fun parseResponse(html: String): ToDoList {
+//        val nameRegex = "<h2>.*<".toRegex()
+//        val listName = ListName(extractListName(nameRegex, html))
+//        val itemsRegex = "<td>.*?<".toRegex()
+//        val items = itemsRegex.findAll(html)
+//            .map { ToDoItem(extractItemDesc(it)) }.toList()
+//        return ToDoList(listName, items)
+//    }
 
-    private fun todoListUrl(user: User, listName: ListName): String = "todo/${user.name}/${listName.name}"
+    private fun todoListUrl(user: User, listName: ListName): String =
+        "todo/${user.name}/${listName.name}"
 
     private fun submitToZettai(path: String, webForm: Form): Response =
-        client(log(Request(Method.POST, "http://localhost:$port/$path").body(webForm.toBody())))
+        client(
+            log(
+                Request(Method.POST, "http://localhost:$port/$path").body(
+                    webForm.toBody()
+                )
+            )
+        )
 
     private fun callZettai(method: Method, path: String): Response =
         client(log(Request(Method.GET, "http://localhost:$port/$path")))
@@ -111,3 +130,8 @@ data class HttpActions(val env: String = "local") : ZettaiActions {
         return something
     }
 }
+
+private fun todoListUrl(
+    user: User,
+    listName: ListName
+): String = "/todo/${user.name}/${listName.name}"
